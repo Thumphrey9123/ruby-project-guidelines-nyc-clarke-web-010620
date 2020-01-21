@@ -13,21 +13,21 @@ def create_entry
     JournalEntry.create(user: u1, location: l1)
 end
 
-def help
-puts "create_entry"
-puts "other_journals"
-puts "browse_by_location"
-puts "browse_by_rating"
-puts "delete_journal"
-end
-
-# prompt.select('Choose an action:') do |menu|
-    
-#     menu.choice name: 'create new'
-#     menu.choice name: 'see other\'s'
-#     menu.choice name: 'browse locations by rating'
-#     menu.choice name: 'delete a journal'
-#     binding.pry
+# def help
+# puts "create_entry"
+# puts "other_journals"
+# puts "browse_by_location"
+# puts "browse_by_rating"
+# puts "delete_journal"
 # end
+
+    prompt.select('Choose an action:') do |menu|
+        menu.choice "create new", -> { return create_entry } 
+        menu.choice "browse by user", -> { return create_entry } 
+        menu.choice "browse by rating", -> { return create_entry } 
+        menu.choice "browse by location", -> { return create_entry } 
+        menu.choice "delete a journal entry", -> { return create_entry } 
+    end
+
 
 puts "El fin"
