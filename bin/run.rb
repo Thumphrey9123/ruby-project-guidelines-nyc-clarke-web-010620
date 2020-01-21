@@ -1,14 +1,23 @@
 require_relative '../config/environment'
 $prompt = TTY::Prompt.new
 
-$prompt.select('Choose an action:') do |menu|
-    menu.choice "create new", -> { return create_entry } 
-    menu.choice "browse by user", -> { return browse_by_user } 
-    menu.choice "browse by rating", -> { return browse_by_rating } 
-    menu.choice "browse by location", -> { return browse_by_location } 
-    menu.choice "delete a journal entry", -> { return delete_journal } 
-    menu.choice "exit"
+
+def start
+system("clear")
+
+i=0
+
+    while i<1
+        
+        $prompt.select('Choose an action:') do |menu|
+            menu.choice "Create new account", -> { start_menu } 
+            menu.choice "Login to account", -> { puts "coming soon!" } 
+            menu.choice "exit", -> {return i+=1} 
+        end
+
+        i+=1
+    end
 end
 
-
+start
 puts "El fin"
