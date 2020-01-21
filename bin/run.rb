@@ -21,13 +21,13 @@ puts "browse_by_rating"
 puts "delete_journal"
 end
 
-# prompt.select('Choose an action:') do |menu|
+prompt.select('Choose an action:') do |menu|
     
-#     menu.choice name: 'create new'
-#     menu.choice name: 'see other\'s'
-#     menu.choice name: 'browse locations by rating'
-#     menu.choice name: 'delete a journal'
-#     binding.pry
-# end
+    menu.choice name: 'create new'
+    menu.choice name: 'see other\'s'
+    menu.choice name: 'browse locations by rating'
+    menu.choice name: 'delete a journal'
+    binding.pry
+end
 
 puts "El fin"
