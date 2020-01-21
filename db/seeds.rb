@@ -8,8 +8,8 @@ mike = User.create(name: "Mike")
 ny = Location.create(name: "New York")
 london = Location.create(name: "London")
 
-j1 = JournalEntry.create(user: tom, location: ny)
-j2 = JournalEntry.create
+j1 = JournalEntry.create(user: tom, location: ny, review: "Kinda cold")
+j2 = JournalEntry.create(user: tom, location: london, review: "Lots of tea")
 
 # j1.user = tom
 # j1.location = ny

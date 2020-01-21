@@ -1,0 +1,2 @@
+def browse_by_location
+end

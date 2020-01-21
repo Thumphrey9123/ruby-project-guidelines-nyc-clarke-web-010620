@@ -1,0 +1,2 @@
+def browse_by_rating
+end
