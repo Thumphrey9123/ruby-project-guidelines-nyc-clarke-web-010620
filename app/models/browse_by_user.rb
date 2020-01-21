@@ -1,8 +1,6 @@
 def user_journals(user)
     $prompt.select ("#{user}'s Journal Entries") do |menu|
-        user.journal_entries.each do |entry|
-            menu.choice "#{entry.title}", -> {puts "#{entry.title}: #{entry.review}"}
-        end
+        journal_entry_menu(user, menu)
     end
 end
 
