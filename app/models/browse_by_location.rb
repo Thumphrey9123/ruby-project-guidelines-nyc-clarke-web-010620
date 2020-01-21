@@ -1,11 +1,6 @@
 def location_journals(location)
     $prompt.select ("Journal Entries for #{location}") do |menu|
-        location.journal_entries.each do |entry|
-            menu.choice "#{entry.title}", -> do
-                system ("clear")
-                puts "#{entry.title}: #{entry.review}"
-            end
-        end
+        journal_entry_menu(location, menu)
     end
 end
 
