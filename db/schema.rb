@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 4) do
 
   create_table "journal_entries", force: :cascade do |t|
     t.string   "review"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 3) do
     t.integer  "rating"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "title"
+    t.string   "tags"
   end
 
   create_table "locations", force: :cascade do |t|
