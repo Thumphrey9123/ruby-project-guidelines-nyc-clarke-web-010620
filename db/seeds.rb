@@ -2,7 +2,7 @@ User.delete_all
 Location.delete_all
 JournalEntry.delete_all
 
-tom = User.create(password: "tom", username: "timmytom")
+tom = User.create(password: "timmytom", username: "tom")
 mike = User.create(password: "Mike", username: "diaz26")
 
 ny = Location.create(name: "New York")

@@ -10,5 +10,7 @@ def browse_by_user
         User.all.each do |user|
             menu.choice "#{user.username}", -> {user_journals(user)}
         end
+        menu.choice "return to main menu", -> {start_menu}
+        menu.choice "exit"
     end
 end

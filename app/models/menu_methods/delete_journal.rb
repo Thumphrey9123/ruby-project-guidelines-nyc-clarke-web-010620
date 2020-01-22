@@ -3,6 +3,7 @@ def delete_journal
         $current_user.journal_entries.each do |entry|
             menu.choice entry.title, -> do 
                 entry.destroy
+                $current_user = User.find($current_user.id)
                 puts "deletion succesful"
             end
         end
