@@ -9,3 +9,10 @@ def start_menu
         menu.choice "exit"
     end
 end
+
+def return_to_menu
+    $prompt.select('Would you like to return to the main menu?') do |menu|
+        menu.choice "Return to main menu", -> { return start_menu } 
+        menu.choice "exit"
+    end
+end

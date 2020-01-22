@@ -12,7 +12,7 @@ journal.review = $prompt.ask("Tell us about your trip there!")
 journal.rating = $prompt.ask("How would you rate your trip?")
 puts "uploading your journal"
 
-start_menu
+return_to_menu
 end
 
 def find_or_create_by_name(user_location)

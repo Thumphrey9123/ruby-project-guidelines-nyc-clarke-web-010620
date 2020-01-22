@@ -22,4 +22,5 @@ def delete_journal
             menu.choice entry.title, -> {entry.destroy}
         end
     end
+    return_to_menu
 end

@@ -2,8 +2,8 @@ User.delete_all
 Location.delete_all
 JournalEntry.delete_all
 
-tom = User.create(name: "Tom", username: "timmytom")
-mike = User.create(name: "Mike")
+tom = User.create(password: "tom", username: "timmytom")
+mike = User.create(password: "Mike", username: "diaz26")
 
 ny = Location.create(name: "New York")
 london = Location.create(name: "London")

@@ -7,7 +7,7 @@ def start
     $prompt.select('Choose an action:') do |menu|
         menu.choice "Create new account", -> { create_account } 
         menu.choice "Login to account", -> { login } 
-        menu.choice "exit", -> {return i+=1} 
+        menu.choice "exit" 
     end
 end
 

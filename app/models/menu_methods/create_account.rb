@@ -1,13 +1,13 @@
 def create_account
     user_name = $prompt.ask("Welcome to Prestige Worldwide! Please enter your prefered username")
-    username = User.create(username: "#{user_name}")
-    if username.id
-        username.name = $prompt.ask("Please enter your full name.")
-        $current_user = username
+    user_password = $prompt.ask("Please enter a password")
+    if User.create(username: "#{user_name}", password: "#{user_password}").valid?
+        new_user = User.create(username: "#{user_name}", password: "#{user_password}")
+        $current_user = new_user
         start_menu
     else
         system("clear")
-        puts "Username unavailable"
+        puts "Username or Password are invalid."
         create_account
     end
  end
