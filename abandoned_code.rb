@@ -31,3 +31,13 @@ response = RestClient.get(URL + "London")
     #     sorted_array = array.sort_by {|set| set[1]}
     #     sorted_array
     # end
+
+## This was a duplicate method. Saving it just in case it's unique.
+# def location_journals(location)
+#     # I want the user to be able to choose a location and then see a list of journal entries
+#     # associated with that location.
+#     $prompt.select ("#{location}'s Journal Entries'") do |menu|
+#         journal_entry_menu(location, menu)     
+#     end
+#     return_to_menu
+# end

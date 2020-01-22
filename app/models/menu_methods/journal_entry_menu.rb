@@ -4,7 +4,7 @@ def journal_entry_menu(object, menu)
         menu.choice "#{entry.title}", -> do
             system ("clear")
             puts "_/~\_/~\_/~\_/~\_/~\_/~\_/~\_/~\_"
-            puts "_/~"
+            puts "_/~"                                  
             puts "_/~\ #{entry.title}" 
             puts "_/~"
             puts "_/~\ Rating: #{entry.rating} out of 5"
