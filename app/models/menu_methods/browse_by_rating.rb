@@ -10,7 +10,8 @@ end
 def browse_by_rating
     # I want to display a list of locations with their average rating next to them.
     $prompt.select('Choose a location') do |menu|
-        Location.all.each do |location|
+        ordered_array = Location.all.sort_by(location.rating)
+        ordered_array.each do |location|
             menu.choice "#{location.name} average rating: #{location.journal_entries.average(:rating)}", -> {location_journals(location)}
         end
     end 
@@ -25,3 +26,7 @@ def journal_entry_menu(object, menu)
         end
     end  
 end     
+
+def rating
+    journal_entries.sum(:rating).to_f / journal_entries.where("rating <= 0").length
+end
