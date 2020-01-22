@@ -4,7 +4,6 @@ def create_account
     if username.id
         username.name = $prompt.ask("Please enter your full name.")
         $current_user = username
-        binding.pry
         start_menu
     else
         system("clear")

@@ -4,6 +4,7 @@ def location_journals(location)
     $prompt.select ("#{location}'s Journal Entries'") do |menu|
         journal_entry_menu(location, menu)     
     end
+    start_menu
 end
 
 def browse_by_rating
@@ -22,5 +23,5 @@ def journal_entry_menu(object, menu)
             system ("clear")
             puts "#{entry.title}: #{entry.review}"
         end
-    end   
+    end  
 end     
