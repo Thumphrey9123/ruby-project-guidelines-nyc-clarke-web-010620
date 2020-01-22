@@ -5,6 +5,7 @@ def start_menu
         menu.choice "browse by user", -> { return browse_by_user } 
         menu.choice "browse by rating", -> { return browse_by_rating } 
         menu.choice "browse by location", -> { return browse_by_location } 
+        menu.choice "edit a journal entry", -> {return journal_display }
         menu.choice "delete a journal entry", -> { return delete_journal } 
         menu.choice "exit"
     end

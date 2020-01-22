@@ -11,19 +11,43 @@ def journal_display
     return_to_menu
 end
 
-# def edit_journal(entry)
-#     $prompt.select ("What would you like to change?") do |menu|
-#         menu.choice entry.title, -> display_selected_section(entry, title)
-#         menu.choice entry.review, -> display_selected_section(entry, review)
-#         menu.choice entry.rating, -> display_selected_section(entry, rating)
-#         menu.choice entry.tags, -> display_selected_section(entry, tags)
-#     end
-# end
+def edit_journal(entry)
+    $prompt.select ("What would you like to change?") do |menu|
+        menu.choice "Title: #{entry.title}", -> {show_title(entry)}
+        menu.choice "Body: #{entry.review}", -> {show_body(entry)}
+        menu.choice "Rating: #{entry.rating}", -> {show_rating(entry)}
+        menu.choice "Tags: #{entry.tags}", -> {show_tags(entry)}
+    end
+end
 
-def display_selected_section(journal, input)
-    puts "Current #{input} shows:"
-    puts "#{journal.input}"
-    puts "What should the new #{input} be?"
+def show_title(journal)
+    puts "Current title shows:"
+    puts "#{journal.title}"
+    puts "What should the new title be?"
     user_input = gets.chomp
-    journal.input = user_input
+    journal.update_attribute(:title, user_input)
+end
+
+def show_body(journal)
+    puts "Current body shows:"
+    puts "#{journal.body}"
+    puts "What should the new body be?"
+    user_input = gets.chomp
+    journal.update_attribute(:body, user_input)
+end
+
+def show_rating(journal)
+    puts "Current rating shows:"
+    puts "#{journal.rating}"
+    puts "What should the new rating be?"
+    user_input = gets.chomp
+    journal.update_attribute(:rating, user_input)
+end
+
+def show_tags(journal)
+    puts "Current tags show:"
+    puts "#{journal.tags}"
+    puts "What should the new tags be?"
+    user_input = gets.chomp
+    journal.update_attribute(:tags, user_input)
 end
