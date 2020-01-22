@@ -1,8 +1,8 @@
 class Location < ActiveRecord::Base
     has_many :journal_entries
 
-    def rating
-        journal_entries.sum(:rating) / journal_entries.length
+    def average_rating
+        self.journal_entries.sum(:rating).to_f / self.journal_entries.where("rating >= 0").length
     end
 
 end
