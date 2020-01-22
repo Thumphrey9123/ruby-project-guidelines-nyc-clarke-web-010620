@@ -9,7 +9,9 @@ def browse_by_location
     $prompt.select("Choose a location:") do |menu|
        
         Location.all.each do |location|
-            menu.choice "#{location.name}", -> {location_journals(location)}
+            if location.journal_entries.length > 0
+                menu.choice "#{location.name}", -> {location_journals(location)}
+            end
         end
         menu.choice "return to main menu", -> {start_menu}
         menu.choice "exit"

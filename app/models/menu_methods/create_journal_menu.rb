@@ -11,7 +11,7 @@ review = $prompt.ask("Tell us about your trip there!")
 rating = $prompt.ask("How would you rate your trip?")
 puts "uploading your journal"
 journal = JournalEntry.create(user: $current_user, location: l1, title: "#{title}", review: "#{review}", rating: "#{rating}")
-
+$current_user = User.find($current_user.id)
 return_to_menu
 end
 
