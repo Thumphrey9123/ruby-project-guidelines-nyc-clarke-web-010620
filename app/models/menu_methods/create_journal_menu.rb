@@ -2,15 +2,15 @@
 def create_entry
 
 system("clear")
-name = $current_user.name
+name = $current_user.username
 puts "Hello #{name}"
 user_location = $prompt.ask("Where would you like to journal about?")
 l1 = find_or_create_by_name(user_location)
-journal = JournalEntry.create(user: $current_user, location: l1)
-journal.title = $prompt.ask("Enter a title:")
-journal.review = $prompt.ask("Tell us about your trip there!")
-journal.rating = $prompt.ask("How would you rate your trip?")
+title = $prompt.ask("Enter a title:")
+review = $prompt.ask("Tell us about your trip there!")
+rating = $prompt.ask("How would you rate your trip?")
 puts "uploading your journal"
+journal = JournalEntry.create(user: $current_user, location: l1, title: "#{title}", review: "#{review}", rating: "#{rating}")
 
 return_to_menu
 end
