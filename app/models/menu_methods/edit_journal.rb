@@ -30,10 +30,10 @@ end
 
 def show_body(journal)
     puts "Current body shows:"
-    puts "#{journal.body}"
+    puts "#{journal.review}"
     puts "What should the new body be?"
     user_input = gets.chomp
-    journal.update_attribute(:body, user_input)
+    journal.update_attribute(:review, user_input)
 end
 
 def show_rating(journal)
