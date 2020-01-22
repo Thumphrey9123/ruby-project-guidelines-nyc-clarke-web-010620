@@ -5,7 +5,7 @@ system("clear")
 name = $current_user.username
 puts "Hello #{name}"
 user_location = $prompt.ask("Where would you like to journal about?")
-l1 = find_or_create_by_name(user_location)
+l1 = Location.find_or_create_by(name: "#{user_location}")
 title = $prompt.ask("Enter a title:")
 review = $prompt.ask("Tell us about your trip there!")
 rating = $prompt.ask("How would you rate your trip?")
@@ -15,13 +15,13 @@ journal = JournalEntry.create(user: $current_user, location: l1, title: "#{title
 return_to_menu
 end
 
-def find_or_create_by_name(user_location)
-    if Location.all.any?{|location| location.name == user_location}
-        return Location.all.find{|location| location.name == user_location}
-    else
-        return Location.create(name: user_location)
-    end
-end
+# def find_or_create_by_name(user_location)
+#     if Location.all.any?{|location| location.name == user_location}
+#         return Location.all.find{|location| location.name == user_location}
+#     else
+#         return Location.create(name: user_location)
+#     end
+# end
 
 
 # start_menu
