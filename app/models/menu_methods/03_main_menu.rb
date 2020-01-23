@@ -7,9 +7,9 @@ def start_menu
     $prompt.select('Choose an action:') do |menu|
         menu.choice "Learn more about locations", -> { return more_info}
         menu.choice "Create new journal entry", -> { return create_entry } 
-        menu.choice "Browse journals by user", -> { return browse_by_user } 
-        menu.choice "Browse journals by rating", -> { return browse_by_rating } 
-        menu.choice "Browse journals by location", -> { return browse_by_location } 
+        menu.choice "Browse journals", -> { return browse_menu } 
+        # menu.choice "Browse journals by rating", -> { return browse_by_rating } 
+        # menu.choice "Browse journals by location", -> { return browse_by_location } 
         menu.choice "Edit a journal entry", -> {return journal_display }
         menu.choice "Delete a journal entry", -> { return delete_journal } 
         menu.choice "exit"
