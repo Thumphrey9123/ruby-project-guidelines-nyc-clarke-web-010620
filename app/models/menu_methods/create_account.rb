@@ -7,7 +7,7 @@ def create_account
         start_menu
     else
         system("clear")
-        puts "Username or Password are invalid."
+        puts "Error! Username or Password are invalid.".red
         create_account
     end
 end

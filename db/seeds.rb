@@ -6,7 +6,7 @@ require 'wikipedia'
 tom = User.create(password: "timmytom", username: "tom")
 mike = User.create(password: "Mike", username: "diaz26")
 
-ny = Location.create(name: "New York")
+ny = Location.create(name: "New York City")
 london = Location.create(name: "London")
 tn = Location.create(name: "Nashville")
 sf = Location.create(name: "San Francisco")

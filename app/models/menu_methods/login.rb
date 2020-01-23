@@ -15,7 +15,7 @@ def login
         start_menu
     else
         system("clear")
-        puts "Username or password do not match system records. Please try again"
+        puts "Username or password do not match system records. Please try again".red
         login
     end
 
