@@ -12,6 +12,7 @@ end
 
 def journal_entry_menu(object, menu)
     # This helper method pulls up all journal entries associated with the first argument ("object")
+    # Most frequently, the argument will either be user or location.
     object.journal_entries.each do |entry|    
         menu.choice "#{entry.title}", -> do
             system ("clear")
