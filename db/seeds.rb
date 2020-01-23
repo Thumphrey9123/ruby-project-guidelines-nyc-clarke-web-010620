@@ -30,5 +30,6 @@ j5 = JournalEntry.create(user: mike, location: mx, review: "Drank too much", tit
 j6 = JournalEntry.create(user: mike, location: it, review: "Too much gelato", title: "When in Rome.", rating: 4)
 j7 = JournalEntry.create(user: mike, location: london, review: "Lots of tea", title: "Crossing the Pond", rating: 2)
 
-# j1.user = tom
-# j1.location = ny
+t1 = Tag.create(name: "Seafood")
+t2 = Tag.create(name: "Coastal")
+t3 = Tag.create(name: "Night Life")
