@@ -1,14 +1,5 @@
-def location_journals(location)
-    # I want the user to be able to choose a location and then see a list of journal entries
-    # associated with that location.
-    $prompt.select ("#{location}'s Journal Entries'") do |menu|
-        journal_entry_menu(location, menu)     
-    end
-    return_to_menu
-end
-
 def browse_by_rating
-    # I want to display a list of locations with their average rating next to them.
+    # This displays 
     $prompt.select('Choose a location') do |menu|
         has_journal = Location.all.select{|location| location.journal_entries.length > 0}
         locations = has_journal.sort_by { |location| location.average_rating}.reverse
