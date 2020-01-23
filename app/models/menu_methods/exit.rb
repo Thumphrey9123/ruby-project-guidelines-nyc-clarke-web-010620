@@ -1,1 +1,1 @@
-#You can just hit escape(^[) then enter.
+#You can just hit escape'^[' then enter.

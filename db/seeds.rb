@@ -1,6 +1,7 @@
 User.delete_all
 Location.delete_all
 JournalEntry.delete_all
+require 'wikipedia'
 
 tom = User.create(password: "timmytom", username: "tom")
 mike = User.create(password: "Mike", username: "diaz26")
@@ -11,6 +12,15 @@ tn = Location.create(name: "Nashville")
 sf = Location.create(name: "San Francisco")
 mx = Location.create(name: "Cancun")
 it = Location.create(name: "Rome")
+
+def wiki_location
+    Location.all.map do|location|
+        page = Wikipedia.find( "#{location.name}" )
+        location.update_attribute(:url, page.fullurl)
+        location.update_attribute(:summary, page.summary)
+    end
+end
+wiki_location
 
 j1 = JournalEntry.create(user: tom, location: ny, review: "Kinda cold", title: "My trip to New York", rating: 4)
 j2 = JournalEntry.create(user: tom, location: london, review: "Lots of tea", title: "Crossing the Pond", rating: 5)
