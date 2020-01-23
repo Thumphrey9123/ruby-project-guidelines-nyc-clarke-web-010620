@@ -31,17 +31,3 @@ end
 
 
 
-
-# def browse_by_rating
-#     # I want to display a list of locations with their average rating next to them.
-#     $prompt.select('Choose a location') do |menu|
-#         array = []
-#         Location.all.each do |location|
-#             array << [location, location.avg_rating]
-#         end
-#         ordered_array = array.map.sort_by(location.rating)
-#         ordered_array.each do |location|
-#             menu.choice "#{location.name} average rating: #{location.journal_entries.average(:rating)}", -> {location_journals(location)}
-#         end
-#     end 
-# end
