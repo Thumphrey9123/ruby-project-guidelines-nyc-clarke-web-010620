@@ -1,4 +1,5 @@
 def journal_display
+    # This allows a user to pick from their journals and make an edit.
     $prompt.select ("Which journal?") do |menu|
         $current_user.journal_entries.each do |entry|
             menu.choice entry.title, -> do 
@@ -12,6 +13,8 @@ def journal_display
 end
 
 def edit_journal(entry)
+    # This method specifically displays the content of four categories from a single journal entry.
+    # Selecting one of the categories will invoke a helper method designed to edit it.
     $prompt.select ("What would you like to change?") do |menu|
         menu.choice "Title: #{entry.title}", -> {show_title(entry)}
         menu.choice "Body: #{entry.review}", -> {show_body(entry)}
@@ -20,6 +23,8 @@ def edit_journal(entry)
     end
 end
 
+# The following four methods allow you to change a specific category.
+# They accept an argument of a journal_entry instance.
 def show_title(journal)
     puts "Current title shows:"
     puts "#{journal.title}"

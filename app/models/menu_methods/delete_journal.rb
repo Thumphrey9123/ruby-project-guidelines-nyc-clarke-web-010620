@@ -1,4 +1,5 @@
 def delete_journal
+    # This method displays a user's journal entries and allows them to select one to be deleted.
     $prompt.select ("Which journal?") do |menu|
         $current_user.journal_entries.each do |entry|
             menu.choice entry.title, -> do 
