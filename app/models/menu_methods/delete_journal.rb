@@ -5,7 +5,7 @@ def delete_journal
                 entry.destroy
                 
                 $current_user = User.find($current_user.id)
-                puts "deletion succesful"
+                puts "deletion successful"
             end
         end
         menu.choice "main menu"
