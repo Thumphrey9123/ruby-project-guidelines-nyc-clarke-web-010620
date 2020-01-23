@@ -4,6 +4,7 @@ def journal_display
         $current_user.journal_entries.each do |entry|
             menu.choice entry.title, -> do 
                 edit_journal(entry)
+                $current_user = User.find($current_user.id)
                 puts "update successful".green
             end
         end
@@ -54,11 +55,23 @@ def show_rating(journal)
 end
 
 def show_tags(journal)
+    $prompt.select ("What would you like to change?") do |menu|
+        menu.choice "Add tags", -> {add_tag(journal)}
+        menu.choice "Delete tags", -> {delete_tag(journal)}
+    end
+end
+
+def delete_tag(journal)
     if journal.tags.length > 0
-        $prompt.select ("What would you like to change?") do |menu|
-            menu.choice "Add tags", -> {add_tag(journal)}
-            menu.choice "Delete tags", -> {delete_tag(journal)}
+        $prompt.select ("Which tag would you like to delete?") do |menu|
+            journal.tags.each do |tag|
+                menu.choice "#{tag.name}", -> do
+                tag.destroy
+                
+                puts "Tag was successfully deleted".red
+            end
         end
+    end
     else
         system("clear")
         puts LINE_SQUIGGLES_MEDIUM.magenta
@@ -66,17 +79,6 @@ def show_tags(journal)
         puts LINE_SQUIGGLES_MEDIUM.magenta
         puts "There are no tags for #{journal.title}.".red
         edit_journal(journal)
-    end
-end
-
-def delete_tag(journal)
-    $prompt.select ("Which tag would you like to delete?") do |menu|
-        journal.tags.each do |tag|
-            menu.choice "#{tag.name}", -> do
-            tag.destroy
-            puts "Tag was successfully deleted".red
-            end
-        end
     end
 end
 
