@@ -1,5 +1,6 @@
 def start
     system("clear")
+    title2
     puts LINE_SQUIGGLES_MEDIUM.magenta
     puts ""
     puts LINE_SQUIGGLES_MEDIUM.magenta
