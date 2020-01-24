@@ -1,8 +1,8 @@
 def browse_by_rating
     # This displays a list of locations that we have arranged by the average rating given by their journal entries.
-    # eligible_locations means only the locations that have journal entries
-    # ratings_sort arranges the list to put the highest rating on top.
     $prompt.select('Choose a location') do |menu|
+        # ratings_sort arranges the list to put the highest rating on top.
+        # eligible_locations means only the locations that have journal entries
         locations = ratings_sort(eligible_locations)
         locations.each do |location|
             menu.choice "#{location.name} average rating: #{location.average_rating}", -> {location_journals(location)}
