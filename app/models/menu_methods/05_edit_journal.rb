@@ -37,27 +37,27 @@ def show_title(journal)
 end
 
 def show_body(journal)
+    # Displays a journal's "review" and allows user to replace it.
     puts "Current body shows:"
     puts "#{journal.review}"
-    # puts "What should the new body be?"
-    # user_input = gets.chomp
     user_input = $prompt.ask("What should the new body be?")
     journal.update_attribute(:review, user_input)
 end
 
 def show_rating(journal)
+    # Displays a journal's rating and allows user to replace it.
     puts "Current rating shows:"
     puts "#{journal.rating}"
-    # puts "What should the new rating be?"
-    # user_input = gets.chomp
     user_input = $prompt.ask("What should the new rating be?")
     journal.update_attribute(:rating, user_input)
 end
 
 def show_tags(journal)
+    # Provides the user with a choice of whether they would like to add or delete tags from a journal entry.
     $prompt.select ("What would you like to change?") do |menu|
         menu.choice "Add tags", -> {add_tag(journal)}
         menu.choice "Delete tags", -> {delete_tag(journal)}
+        menu.choice "Return to main menu" 
     end
 end
 
@@ -78,11 +78,14 @@ def delete_tag(journal)
         puts ""
         puts LINE_SQUIGGLES_MEDIUM.magenta
         puts "There are no tags for #{journal.title}.".red
-        edit_journal(journal)
+        show_tags(journal)
     end
 end
 
 def add_tag(journal)
+    # Creates a new tag and assigns it to the journal.
+    # In the future, I would like tags and journals to have a many-to-many relationship.
+    # When that becomes the case, we'll change this function to become find_or_create so that one tag can have many journal entries.
     user_input = $prompt.ask("What should the new tag be?")
     Tag.create(name: user_input, journal_entry: journal)
 end
