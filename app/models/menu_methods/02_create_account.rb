@@ -3,7 +3,7 @@ def create_account
     # The logic here is connected to the User class, which requires that a username is unique (has not been used before)
     # and that both un and pw exist (they can't be left blank). If these requirements are not met, the "else" statement
     # will be displayed and the method will loop itself until the user submits appropriately.
-    user_name = $prompt.ask("Welcome to !!***PRESTIGE WORLDWIDEe***!! Please enter your prefered username")
+    user_name = $prompt.ask("Welcome to !!***PRESTIGE WORLDWIDE***!! Please enter your prefered username")
     user_password = $prompt.ask("Please enter a password")
     if User.create(username: "#{user_name}", password: "#{user_password}").valid?
         new_user = User.create(username: "#{user_name}", password: "#{user_password}")
