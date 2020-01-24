@@ -13,9 +13,10 @@ def login
 end
 
 def get_login
-    user_name = $prompt.ask("Please enter your Username")
-    user_password = $prompt.mask("Please enter your Password")
-    # This logic sets a username if the credentials are correct. If not, username becomes nil and the method repeats.
+    # This method asks for a username and password input. It checks to see if the inputs are valid and loops if not.
+    # We added required true to prevent input of space or empty, which causes an error in the TTY function
+    user_name = $prompt.ask("Please enter your Username", required: true)
+    user_password = $prompt.mask("Please enter your Password", required: true)
     if User.all.any?{|user| user.username == user_name && user.password == user_password}
         username = User.all.find{|user| user.username == user_name}
     else
