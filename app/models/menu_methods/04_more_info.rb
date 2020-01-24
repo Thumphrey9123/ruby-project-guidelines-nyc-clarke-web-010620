@@ -1,7 +1,11 @@
 def location_info(location)
     system("clear")
+    puts LINE_SQUIGGLES_MEDIUM.magenta
     puts "#{location.summary}"
-    puts "#{location.url}"
+    puts ""
+    puts EQUALS_MEDIUM.white
+    puts ""
+    puts "Click here to see the Wiki Page! #{location.url}"
     return_to_menu
 end
 

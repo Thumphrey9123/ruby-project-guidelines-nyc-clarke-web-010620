@@ -17,6 +17,16 @@ If you prefer to install the gems manually, enter these commands:
 `gem install tty-prompt`
 `gem install wikipedia-client -v 1.5.0`
 
+### How to run
+
+1. enter 'bundle install' in terminal
+2. enter 'rake db:migrate' in terminal
+3. enter 'rake db:seed' in terminal
+Now you're ready to go!
+4. enter 'ruby ./bin/run.rb' in the terminal once you are at the top of the file.
+
+Welcome to Prestige Worldwide! An educational travel blogging website.
+
 ## Contributors
 
 * This app was conceived by Thomas Humphrey. The code was written by Thomas Humphrey and Michael Diaz.
