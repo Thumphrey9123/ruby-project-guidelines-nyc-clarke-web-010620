@@ -12,7 +12,14 @@ def browse_by_user
     # They will also see the option to return to the main menu (go back) or exit the program.
     $prompt.select ('Choose a user:') do |menu|
         User.all.each do |user|
-            menu.choice "#{user.username}", -> {user_journals(user)}
+            if user.journal_entries.length > 0
+                menu.choice "#{user.username}", -> {user_journals(user)}
+            else
+                menu.choice "#{user.username}", -> do
+                    puts "This user does not have any journals".red
+                    browse_by_user
+                end
+            end
         end
         menu.choice "return to main menu", -> {start_menu}
         menu.choice "exit"

@@ -9,3 +9,4 @@ gem "require_all"
 gem 'wikipedia-client', '~> 1.5'
 gem 'tty-color'
 gem 'colorize'
+gem 'google_places'
